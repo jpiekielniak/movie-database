@@ -1,9 +1,16 @@
 import React from "react";
+import "./App.css";
+import MovieCard from "./components/MovieCard";
+import { films } from "./filmsData";
 
 function App() {
   return (
-    <div className="container">
-        <p>Welcome to database movie</p>
+    <div className="movie-container">
+      {films.map((film, index) => (
+        <div className="cards" key={index}>
+          <MovieCard film={film} />
+        </div>
+      ))}
     </div>
   );
 }
