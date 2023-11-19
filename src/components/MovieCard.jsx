@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/MovieCard.css";
+import "../styles/movieCard.css";
 
 function MovieCard(props) {
   const { title, rating, image, description } = props.film;

@@ -1,9 +1,3 @@
-.movie-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 3fr));
-  gap: 20px;
-  margin: 1.5rem;
-}
 
 .movie-card {
   position: relative;
@@ -30,7 +24,7 @@
 .movie-card-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   margin-bottom: 1rem;
 }
 
