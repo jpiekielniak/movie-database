@@ -1,7 +1,17 @@
-import React from "react";
 import "../styles/movieCard.css";
 
-function MovieCard(props) {
+interface Film {
+  title: string;
+  rating: number;
+  image: string;
+  description: string;
+}
+
+interface MovieCardProps {
+  film: Film;
+}
+
+function MovieCard(props: MovieCardProps) {
   const { title, rating, image, description } = props.film;
 
   return (

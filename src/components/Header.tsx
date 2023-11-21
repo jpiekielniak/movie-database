@@ -1,4 +1,3 @@
-import React from "react";
 import LoginButton from "./LoginButton";
 import "../styles/header.css";
 
@@ -12,6 +11,7 @@ const Header = () => {
         <LoginButton />
       </div>
     </div>
+    
   );
 };
 
