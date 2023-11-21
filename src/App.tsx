@@ -1,7 +1,7 @@
 import { Grid, Image, Container } from "@mantine/core";
 import MovieList from "./components/MovieList";
 import Footer from "./components/Footer/Footer";
-import LoginButton from './components/LoginButton';
+import SignIn from './components/SignIn';
 import { SearchBar } from "./components/SearchBar";
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
             <Image src="movie_club.png" alt="Movie Logo" width={120} height={50} />
           </div>
           <div style={{ justifySelf: 'end' }}>
-            <LoginButton />
+            <SignIn />
           </div>
           <div style={{ justifySelf: 'center', width: '100%' }}>
             <Container>
