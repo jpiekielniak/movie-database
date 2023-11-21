@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import App from "./App";
+import { NotFound } from "./components/NotFound/NotFound";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 
@@ -18,7 +19,7 @@ root.render(
     <BrowserRouter>
     <Routes>
       <Route path="/"  element={<App/>} />
-      <Route path="*" element={<h1>404</h1>} />
+      <Route path="*" element={<NotFound/>} />
     </Routes>
     </BrowserRouter>
   </MantineProvider>
