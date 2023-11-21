@@ -5,7 +5,7 @@ import SocialMediaIcons from "./SocialMediaIcons";
 export default function Footer() {
   const footerLineStyle = {
     borderTop: "1px solid black",
-    backgroundColor: "#6A00E3",
+    backgroundColor: "#6a85b6",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
