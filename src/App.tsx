@@ -1,5 +1,4 @@
 import "./App.css";
-import { films } from "./filmsData";
 import MovieList from "./components/MovieList";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -11,7 +10,7 @@ function App() {
       <Header />
       <SearchBar />
       <div className="main-content">
-        <MovieList films={films} />
+        <MovieList />
       </div>
       <Footer />
     </div>

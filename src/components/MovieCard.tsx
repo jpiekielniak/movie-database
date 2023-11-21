@@ -7,12 +7,7 @@ interface Film {
   description: string;
 }
 
-interface MovieCardProps {
-  film: Film;
-}
-
-function MovieCard(props: MovieCardProps) {
-  const { title, rating, image, description } = props.film;
+function MovieCard({ title, rating, image, description }: Film) {
 
   return (
     <div className="movie-card">
