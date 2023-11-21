@@ -1,7 +1,14 @@
 const IMAGE_URL =
   "https://media.istockphoto.com/id/475133058/pl/wektor/kresk%C3%B3wka-ch%C5%82opiec-ogl%C4%85dania-filmu-w-kinie.jpg?s=2048x2048&w=is&k=20&c=CfjcxNlV4Tv4Br6ogiFoqRA1mZnDDzs6gtluK54dnjA=";
 
-export const films = [
+export interface Film {
+  title: string;
+  rating: number;
+  image: string;
+  description: string;
+}
+
+export const films: Film[] = [
   {
     title: "Spider-Man: Across the Spider-Verse",
     rating: 9.0,

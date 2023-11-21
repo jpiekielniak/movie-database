@@ -1,24 +1,14 @@
 import MovieCard from "./MovieCard";
 import "../styles/movieList.css";
-import React from "react";
+import { films } from "../filmsData";
 
-interface Film {
-  title: string;
-  rating: number;
-  image: string;
-  description: string;
-}
 
-interface MovieListProps {
-  films: Film[];
-}
-
-const MovieList : React.FC<MovieListProps> = ({ films }) => {
+const MovieList = () => {
   return (
     <div className="movie-container">
       {films.map((film, index) => (
-        <div key={index}>
-          <MovieCard film={film} />
+        <div key={`${index}_${film.title}`}>
+        <MovieCard {...film} />
         </div>
       ))}
     </div>
