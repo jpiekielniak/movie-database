@@ -1,6 +1,6 @@
 import { Grid, Image, Container } from "@mantine/core";
 import MovieList from "./components/MovieList";
-import Footer from "./components/Footer";
+import Footer from "./components/Footer/Footer";
 import LoginButton from './components/LoginButton';
 import { SearchBar } from "./components/SearchBar";
 
