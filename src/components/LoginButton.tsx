@@ -1,9 +1,7 @@
-import React from "react";
-import "../styles/login.css";
 
 const LoginButton = () => {
   return (
-    <button className="login-button">
+    <button style={{ position: 'absolute', top: '20px', right: '20px' }} >
       Zaloguj się 
     </button>
   );
