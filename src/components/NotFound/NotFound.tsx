@@ -1,5 +1,5 @@
 import { Container, Title, Text, Button, Group } from "@mantine/core";
-import { Illustration } from "../NotFound/Ilustration/Ilustration";
+import { Illustration } from "./ilustration/Ilustration";
 import "../../styles/notFound.css";
 import { useNavigate } from "react-router-dom";
 
