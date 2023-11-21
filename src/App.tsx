@@ -1,16 +1,37 @@
-import "./App.css";
+import { Grid, Image, Container } from "@mantine/core";
 import MovieList from "./components/MovieList";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
+import LoginButton from './components/LoginButton';
 import { SearchBar } from "./components/SearchBar";
 
 function App() {
   return (
-    <div className="app-container">
-      <Header />
-      <SearchBar />
-      <div className="main-content">
-        <MovieList />
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <div style={{ flex: 1 }}>
+        <Grid
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            padding: '20px',
+          }}
+        >
+          <div style={{ justifySelf: 'start' }}>
+            <Image src="movie_club.png" alt="Movie Logo" width={120} height={50} />
+          </div>
+          <div style={{ justifySelf: 'end' }}>
+            <LoginButton />
+          </div>
+          <div style={{ justifySelf: 'center', width: '100%' }}>
+            <Container>
+              <SearchBar />
+            </Container>
+            <Container style={{ marginTop: '20px' }}>
+              <MovieList />
+            </Container>
+          </div>
+        </Grid>
       </div>
       <Footer />
     </div>
