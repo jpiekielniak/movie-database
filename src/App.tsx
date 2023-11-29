@@ -1,8 +1,8 @@
 import { Grid, Image, Container } from "@mantine/core";
-import MovieList from "./components/MovieList";
+import MovieList from "./components/MovieCard/MovieList";
 import Footer from "./components/footer/Footer";
-import SignIn from "./components/SignIn";
-import { SearchBar } from "./components/SearchBar";
+import SignIn from "./components/auth/SignIn/SignIn";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 import MovieCard from "./MovieCard";
-import "../styles/movieList.css";
-import { films } from "../filmsData";
+import "../../styles/movieList.css";
+import { films } from "../../filmsData";
 
 
 const MovieList = () => {
