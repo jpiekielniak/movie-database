@@ -1,4 +1,4 @@
-import "../styles/movieCard.css";
+import "../../styles/movieCard.css";
 
 interface Film {
   title: string;

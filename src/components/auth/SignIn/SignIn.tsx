@@ -1,5 +1,5 @@
 import { Button } from '@mantine/core';
-import "../styles/signIn.css"
+import "../../../styles/signIn.css"
 import { useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
