@@ -1,6 +1,6 @@
 import { Container, Title, Text, Button, Group } from "@mantine/core";
 import { Illustration } from "./ilustration/Ilustration";
-import "../../styles/notFound.css";
+import "./styles/notFound.css";
 import { useNavigate } from "react-router-dom";
 
 export function NotFound() {

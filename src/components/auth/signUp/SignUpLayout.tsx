@@ -4,15 +4,16 @@ import "./styles/signUpLayout.css";
 import { IconLogin2 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { IconUserPlus } from "@tabler/icons-react";
-import { useFormData } from "./hooks/useFormData";
+import { useSignUpData } from "./hooks/useSignUpData";
 import { usePasswordMatch } from "./hooks/usePasswordMatch";
 
 const SignInLayout: React.FC = () => {
-  const [formData, handleChange] = useFormData();
+  const [formData, handleChange] = useSignUpData();
   const passwordsMatch = usePasswordMatch(formData);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log(formData);
     // Send to API
   };
 

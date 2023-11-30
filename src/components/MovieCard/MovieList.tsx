@@ -1,5 +1,5 @@
 import MovieCard from "./MovieCard";
-import "../../styles/movieList.css";
+import "./styles/movieList.css";
 import { films } from "../../filmsData";
 
 

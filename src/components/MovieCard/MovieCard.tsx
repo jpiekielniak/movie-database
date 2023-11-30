@@ -1,11 +1,6 @@
-import "../../styles/movieCard.css";
+import "./styles/movieCard.css";
+import { Film } from "./interfaces/Film";
 
-interface Film {
-  title: string;
-  rating: number;
-  image: string;
-  description: string;
-}
 
 function MovieCard({ title, rating, image, description }: Film) {
 
