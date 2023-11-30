@@ -1,39 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { Container, TextInput, Button, Notification } from "@mantine/core";
 import "./styles/signUpLayout.css";
 import { IconLogin2 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { IconUserPlus } from "@tabler/icons-react";
-
+import { useFormData } from "./hooks/useFormData";
+import { usePasswordMatch } from "./hooks/usePasswordMatch";
 
 const SignInLayout: React.FC = () => {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-
-  const [passwordsMatch, setPasswordsMatch] = useState(true);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = event.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [id]: value,
-    }));
-  };
+  const [formData, handleChange] = useFormData();
+  const passwordsMatch = usePasswordMatch(formData);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (formData.password !== formData.confirmPassword) {
-      setPasswordsMatch(false);
-    } else {
-      setPasswordsMatch(true);
-    }
+    // Send to API
   };
 
   return (
-    <Container size="sm" className="container">
+    <Container className="container">
       <form className="form" onSubmit={handleSubmit}>
         <div className="descr">Rejestracja</div>
 
@@ -74,30 +58,39 @@ const SignInLayout: React.FC = () => {
           fullWidth
           variant="gradient"
           gradient={{ from: "blue", to: "cyan" }}
-          style={{ padding: "8px" }}
+          style={{ padding: "8px", marginTop: "30px", marginBottom: "10px" }}
         >
           Zarejestruj się <IconLogin2 />
         </Button>
 
-        <p style={{ textAlign: "center", marginTop: "10px", color: "white" }}>
-          <span style={{ color: "white" }}>Masz już konto?</span>{" "}
-          <Link to="/sign-in" style={{ textDecoration: "none", color: "lime" }}>
-            Zaloguj się <IconUserPlus size={20} strokeWidth={1.5} />
-          </Link>
-        </p>
-      </form>
-      {!passwordsMatch && (
-        <Notification
-          color="red"
-          icon={<IconUserPlus />}
-          withCloseButton={false}
-          style={{ backgroundColor: "transparent" }}
+        <div
+          style={{ textAlign: "center", color: "white", marginBottom: "10px" }}
         >
-          <p style={{ fontWeight: "bold", color: "white" }}>
-            Hasła nie są identyczne. Proszę wprowadzić takie same hasła.
-          </p>
-        </Notification>
-      )}
+          <Link to="/sign-in" style={{ textDecoration: "none", color: "lime" }}>
+            Masz już konto? Zaloguj się{" "}
+            <IconUserPlus size={20} strokeWidth={1.5} />
+          </Link>
+        </div>
+
+        {!passwordsMatch && (
+          <div className="notification-wrapper">
+            <div className="notification">
+              <Notification
+                color="red"
+                icon={<IconUserPlus />}
+                withCloseButton={false}
+                style={{ backgroundColor: "transparent" }}
+              >
+                <p
+                  style={{ fontWeight: "bold", color: "white", width: "175px" }}
+                >
+                  Hasła nie są identyczne. Proszę wprowadzić takie same hasła.
+                </p>
+              </Notification>
+            </div>
+          </div>
+        )}
+      </form>
     </Container>
   );
 };
