@@ -1,5 +1,5 @@
 import { Container, Grid, Image } from '@mantine/core';
-import LoginButton from '../auth/SignIn/SignIn';
+import LoginButton from './SignInButton';
 
 const Header = () => {
   return (

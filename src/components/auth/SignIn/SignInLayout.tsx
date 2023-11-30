@@ -4,13 +4,18 @@ import "../SignIn/styles/signInLayout.css";
 import { IconLogin2 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { IconUserPlus } from "@tabler/icons-react";
-
+import { useSignInData } from "./hooks/useSignInData";
 
 const SignInLayout: React.FC = () => {
+  
+  const [signInValues, handleInputChange] = useSignInData()
+  
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log(signInValues);
     //TODO: handle submit
   };
+
 
   return (
     <Container size="sm" className="container">
@@ -18,7 +23,10 @@ const SignInLayout: React.FC = () => {
         <div className="descr">Logowanie</div>
 
         <div className="input">
-          <TextInput required id="email" placeholder="E-mail" />
+          <TextInput 
+          required id="email" 
+          placeholder="E-mail"
+          onChange={handleInputChange} />
         </div>
 
         <div className="input">
@@ -27,6 +35,7 @@ const SignInLayout: React.FC = () => {
             id="password"
             type="password"
             placeholder="Hasło"
+            onChange={handleInputChange}
           />
         </div>
 

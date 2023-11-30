@@ -1,9 +1,8 @@
-import React, { ChangeEvent, useState } from "react";
-import { FormData } from "../interfaces/FormData";
+import { ChangeEvent, useState } from "react";
+import { SignUp } from "../interfaces/SignUp";
 
-
-export const useFormData = (): [FormData, (event: ChangeEvent<HTMLInputElement>) => void] => {
-    const [formData, setFormData] = useState<FormData>({
+export const useSignUpData = (): [SignUp, (event: ChangeEvent<HTMLInputElement>) => void] => {
+    const [formData, setFormData] = useState<SignUp>({
         email: "",
         password: "",
         confirmPassword: "",
