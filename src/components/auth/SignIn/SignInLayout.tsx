@@ -5,9 +5,8 @@ import { IconLogin2 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { IconUserPlus } from "@tabler/icons-react";
 
-interface SignInLayoutProps {}
 
-const SignInLayout: React.FC<SignInLayoutProps> = () => {
+const SignInLayout: React.FC = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     //TODO: handle submit
@@ -36,17 +35,14 @@ const SignInLayout: React.FC<SignInLayoutProps> = () => {
           fullWidth
           variant="gradient"
           gradient={{ from: "blue", to: "cyan" }}
-          style={{ padding: "8px" }}
+          style={{ padding: "8px", marginTop: "30px", marginBottom: "10px" }}
         >
           Zaloguj się <IconLogin2 />
         </Button>
 
         <p style={{ textAlign: "center", marginTop: "10px", color: "white" }}>
           <span style={{ color: "white" }}>Nie masz konta?</span>{" "}
-          <Link
-            to="/sign-up"
-            style={{ textDecoration: "none", color: "lime" }}
-          >
+          <Link to="/sign-up" style={{ textDecoration: "none", color: "lime" }}>
             Zarejestruj się <IconUserPlus size={20} strokeWidth={1.5} />
           </Link>
         </p>
