@@ -36,6 +36,7 @@ const SignInLayout: React.FC<SignInLayoutProps> = () => {
           fullWidth
           variant="gradient"
           gradient={{ from: "blue", to: "cyan" }}
+          style={{ padding: "8px" }}
         >
           Zaloguj się <IconLogin2 />
         </Button>
@@ -43,7 +44,7 @@ const SignInLayout: React.FC<SignInLayoutProps> = () => {
         <p style={{ textAlign: "center", marginTop: "10px", color: "white" }}>
           <span style={{ color: "white" }}>Nie masz konta?</span>{" "}
           <Link
-            to="/rejestracja"
+            to="/sign-up"
             style={{ textDecoration: "none", color: "lime" }}
           >
             Zarejestruj się <IconUserPlus size={20} strokeWidth={1.5} />

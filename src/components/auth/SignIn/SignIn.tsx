@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
   const navigate = useNavigate();
-  const handleSignInClick = () => navigate('/login');
+  const handleSignInClick = () => navigate('/sign-in');
 
   return (
     <Button
