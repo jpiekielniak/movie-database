@@ -2,9 +2,8 @@ import React from "react";
 import { Container, TextInput, Button } from "@mantine/core";
 import styles from "../SignIn/styles/signInLayout.module.css";
 import { IconLogin2 } from "@tabler/icons-react";
-import { Link } from "react-router-dom";
-import { IconUserPlus } from "@tabler/icons-react";
 import { useSignInData } from "./hooks/useSignInData";
+import SignUpLink from "./SignUpLink";
 
 const SignInLayout: React.FC = () => {
   const [signInValues, handleInputChange] = useSignInData();
@@ -44,15 +43,14 @@ const SignInLayout: React.FC = () => {
           fullWidth
           variant="gradient"
           gradient={{ from: "blue", to: "cyan" }}
-          className={styles.btn}>
+          className={styles.btn}
+        >
           Zaloguj się <IconLogin2 />
         </Button>
 
         <p className={styles.textCenter}>
           <span className={styles.whiteText}>Nie masz konta?</span>{" "}
-          <Link to="/sign-up" className={styles.link}>
-            Zarejestruj się <IconUserPlus size={20} strokeWidth={1.5} />
-          </Link>
+          <SignUpLink />
         </p>
       </form>
     </Container>
