@@ -1,5 +1,5 @@
 import { Button } from '@mantine/core';
-import "./styles/signInButton.css"
+import styles from "./styles/signInButton.module.css"
 import { useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
@@ -10,12 +10,11 @@ export default function SignIn() {
     <Button
       variant="gradient"
       gradient={{ from: 'rgba(211, 217, 232, 1)', to: 'blue' }}
-      style={{ position: 'absolute', top: '20px', right: '20px' }}  
-      className='btn'
+      style={{ position:"absolute", right:"10px", top:"10px"}}
+      className={styles.btn}
       onClick={handleSignInClick} 
     >
       Zaloguj się 
     </Button>
   );
 };
-

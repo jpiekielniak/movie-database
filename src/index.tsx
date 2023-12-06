@@ -5,7 +5,7 @@ import {
   Route
 } from "react-router-dom";
 import "./index.css";
-import App from "./App";
+import App from "./containers/App";
 import { NotFound } from "./components/notFound/NotFound";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";

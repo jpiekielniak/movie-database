@@ -1,5 +1,4 @@
-
-.movie-card {
+.card {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -16,19 +15,19 @@
   overflow: hidden;
 }
 
-.movie-card:hover {
+.card:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.movie-card-image {
+.image {
   width: 100%;
   height: 100%;
   object-fit: contain;
   margin-bottom: 1rem;
 }
 
-.movie-card-info {
+.info {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -44,7 +43,7 @@
   transform: translateY(100%);
 }
 
-.movie-card:hover .movie-card-info {
+.card:hover .info {
   transform: translateY(0);
   opacity: 1;
 }

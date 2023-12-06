@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  flex: 1;
+}
+
+.flex {
+  flex: 1;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo {
+  justify-self: start;
+}
+
+.signIn {
+  justify-self: end;
+}
+
+.contentContainer {
+  justify-self: center;
+  width: 100%;
+}
+
+.movieContainer {
+  margin-top: 20px;
+}
