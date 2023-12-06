@@ -1,5 +1,5 @@
 import styles from "./styles/movieCard.module.css";
-import { Film } from "./interfaces/Film";
+import { Film } from "./types/Film";
 
 function MovieCard({ title, rating, image, description }: Film) {
   return (

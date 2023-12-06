@@ -1,5 +1,5 @@
 import { ChangeEvent, useState } from "react";
-import { SignUp } from "../interfaces/SignUp";
+import { SignUp } from "../types/SignUp";
 
 export const useSignUpData = (): [SignUp, (event: ChangeEvent<HTMLInputElement>) => void] => {
     const [formData, setFormData] = useState<SignUp>({
