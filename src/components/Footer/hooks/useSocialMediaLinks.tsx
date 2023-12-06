@@ -3,13 +3,8 @@ import {
   IconBrandLinkedin,
   IconBrandGithub,
   IconMail,
-  TablerIconsProps,
 } from "@tabler/icons-react";
-
-interface SocialMediaLink {
-  icon: React.ElementType<TablerIconsProps>;
-  link: string;
-}
+import SocialMediaLink from "../types/SocialMediaLink";
 
 export const useSocialMediaLinks = (): SocialMediaLink[] => {
     const [socialMediaLinks] = useState<SocialMediaLink[]>([
