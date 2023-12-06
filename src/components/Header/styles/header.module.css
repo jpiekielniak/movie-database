@@ -9,12 +9,12 @@
   width: 100%;
 }
 
-.grid-col-start {
+.gridColStart {
   display: flex;
   justify-content: flex-start;
 }
 
-.grid-col-end {
+.gridColEnd {
   display: flex;
   justify-content: flex-end;
 }
