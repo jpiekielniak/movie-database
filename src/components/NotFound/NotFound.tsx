@@ -1,12 +1,9 @@
-import { Container, Title, Text, Button, Group } from "@mantine/core";
+import { Container, Title, Text, Group } from "@mantine/core";
 import { Illustration } from "./ilustration/Ilustration";
 import styles from "./styles/notFound.module.css";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export function NotFound() {
-  const navigate = useNavigate();
-  const handleRedirect = () => navigate("/");
-
   return (
     <Container className={styles.container}>
       <div className={styles.inner}>
@@ -17,13 +14,13 @@ export function NotFound() {
             <p>
               Strona, którą próbujesz otworzyć, nie istnieje. Może nastąpił błąd
               w adresie, albo strona została przeniesiona pod inny URL. Jeśli
-              uważasz, że to błąd, skontaktuj się z pomocą techniczną.
+              import
             </p>
           </Text>
           <Group justify="center">
-            <Button size="md" onClick={handleRedirect}>
-              Wróć do strony głównej
-            </Button>
+          <Link to="/" className={styles.link}>
+            Wróć do strony głównej
+          </Link>
           </Group>
         </div>
       </div>

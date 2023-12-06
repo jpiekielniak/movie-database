@@ -1,20 +1,14 @@
-import { Button } from '@mantine/core';
-import styles from "./styles/signInButton.module.css"
-import { useNavigate } from 'react-router-dom';
+import styles from "./styles/signInButton.module.css";
+import { Link } from "react-router-dom";
 
-export default function SignIn() {
-  const navigate = useNavigate();
-  const handleSignInClick = () => navigate('/sign-in');
-
+export default function SignInButton() {
   return (
-    <Button
-      variant="gradient"
-      gradient={{ from: 'rgba(211, 217, 232, 1)', to: 'blue' }}
-      style={{ position:"absolute", right:"10px", top:"10px"}}
+    <Link
+      to="/sign-in"
+      style={{ position: "absolute", right: "20px", top: "20px" }}
       className={styles.btn}
-      onClick={handleSignInClick} 
     >
-      Zaloguj się 
-    </Button>
+      Zaloguj się
+    </Link>
   );
-};
+}
