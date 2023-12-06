@@ -1,7 +1,7 @@
 import { Container, Title, Text, Group } from "@mantine/core";
 import { Illustration } from "./ilustration/Ilustration";
 import styles from "./styles/notFound.module.css";
-import { Link } from "react-router-dom";
+import HomeLink from "./HomeLink";
 
 export function NotFound() {
   return (
@@ -18,9 +18,7 @@ export function NotFound() {
             </p>
           </Text>
           <Group justify="center">
-          <Link to="/" className={styles.link}>
-            Wróć do strony głównej
-          </Link>
+          <HomeLink />
           </Group>
         </div>
       </div>
