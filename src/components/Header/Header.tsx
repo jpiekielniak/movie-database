@@ -1,21 +1,15 @@
 import { Container, Grid, Image } from '@mantine/core';
 import LoginButton from './SignInButton';
+import styles from "./styles/header.module.css";
 
 const Header = () => {
   return (
-    <Container
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '20px',
-      }}
-    >
-      <Grid style={{ width: '100%' }}>
-        <Grid.Col style={{ display: 'flex', justifyContent: 'flex-start' }}>
+    <Container className={styles.container}>
+      <Grid className={styles.grid}>
+        <Grid.Col className={styles.gridColStart}>
           <Image src="movie_club.png" alt="Movie Logo" width={120} height={50} />
         </Grid.Col>
-        <Grid.Col style={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <Grid.Col className={styles.gridColEnd}>
           <LoginButton />
         </Grid.Col>
       </Grid>

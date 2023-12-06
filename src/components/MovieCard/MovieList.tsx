@@ -1,11 +1,11 @@
 import MovieCard from "./MovieCard";
-import "./styles/movieList.css";
-import { films } from "../../filmsData";
+import styles from "./styles/movieList.module.css";
+import { films } from "../../data/filmsData";
 
 
 const MovieList = () => {
   return (
-    <div className="movie-container">
+    <div className={styles.container}>
       {films.map((film, index) => (
         <div key={`${index}_${film.title}`}>
         <MovieCard {...film} />

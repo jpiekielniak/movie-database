@@ -1,15 +1,13 @@
 import React from "react";
-import { Container, TextInput, Button, Notification } from "@mantine/core";
-import "./styles/signUpLayout.css";
+import { Container, TextInput, Button } from "@mantine/core";
+import styles from "./styles/signUpLayout.module.css";
 import { IconLogin2 } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
 import { IconUserPlus } from "@tabler/icons-react";
 import { useSignUpData } from "./hooks/useSignUpData";
-import { usePasswordMatch } from "./hooks/usePasswordMatch";
 
 const SignInLayout: React.FC = () => {
   const [formData, handleChange] = useSignUpData();
-  const passwordsMatch = usePasswordMatch(formData);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -18,40 +16,51 @@ const SignInLayout: React.FC = () => {
   };
 
   return (
-    <Container className="container">
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="descr">Rejestracja</div>
+    <Container className={styles.container}>
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <div className={styles.descr}>Rejestracja</div>
 
-        <div className="input">
+        <div className={styles.input}>
+          <TextInput
+            required
+            id="login"
+            placeholder="Login"
+            value={formData.login}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className={styles.input}>
+          <TextInput
+            required
+            id="nick"
+            type="text"
+            placeholder="Nazwa"
+            value={formData.nick}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className={styles.input}>
           <TextInput
             required
             id="email"
+            type="email"
             placeholder="E-mail"
             value={formData.email}
             onChange={handleChange}
           />
-        </div>
 
-        <div className="input">
-          <TextInput
-            required
-            id="password"
-            type="password"
-            placeholder="Hasło"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="input">
-          <TextInput
-            required
-            id="confirmPassword"
-            type="password"
-            placeholder="Potwierdź hasło"
-            value={formData.confirmPassword}
-            onChange={handleChange}
-          />
+          <div className={styles.input}>
+            <TextInput
+              required
+              id="password"
+              type="password"
+              placeholder="Hasło"
+              value={formData.password}
+              onChange={handleChange}
+            />
+          </div>
         </div>
 
         <Button
@@ -59,38 +68,17 @@ const SignInLayout: React.FC = () => {
           fullWidth
           variant="gradient"
           gradient={{ from: "blue", to: "cyan" }}
-          style={{ padding: "8px", marginTop: "30px", marginBottom: "10px" }}
+          className={styles.btn}
         >
           Zarejestruj się <IconLogin2 />
         </Button>
 
-        <div
-          style={{ textAlign: "center", color: "white", marginBottom: "10px" }}
-        >
-          <Link to="/sign-in" style={{ textDecoration: "none", color: "lime" }}>
+        <div className={styles.textCenter}>
+          <Link to="/sign-in" className={styles.link}>
             Masz już konto? Zaloguj się{" "}
             <IconUserPlus size={20} strokeWidth={1.5} />
           </Link>
         </div>
-
-        {!passwordsMatch && (
-          <div className="notification-wrapper">
-            <div className="notification">
-              <Notification
-                color="red"
-                icon={<IconUserPlus />}
-                withCloseButton={false}
-                style={{ backgroundColor: "transparent" }}
-              >
-                <p
-                  style={{ fontWeight: "bold", color: "white", width: "175px" }}
-                >
-                  Hasła nie są identyczne. Proszę wprowadzić takie same hasła.
-                </p>
-              </Notification>
-            </div>
-          </div>
-        )}
       </form>
     </Container>
   );

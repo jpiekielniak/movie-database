@@ -3,9 +3,10 @@ import { SignUp } from "../interfaces/SignUp";
 
 export const useSignUpData = (): [SignUp, (event: ChangeEvent<HTMLInputElement>) => void] => {
     const [formData, setFormData] = useState<SignUp>({
+        login: "",
+        nick: "",
         email: "",
-        password: "",
-        confirmPassword: "",
+        password: ""
     });
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {

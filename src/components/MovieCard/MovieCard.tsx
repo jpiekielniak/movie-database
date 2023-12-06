@@ -1,13 +1,11 @@
-import "./styles/movieCard.css";
+import styles from "./styles/movieCard.module.css";
 import { Film } from "./interfaces/Film";
 
-
 function MovieCard({ title, rating, image, description }: Film) {
-
   return (
-    <div className="movie-card">
-      <img className="movie-card-image" src={image} alt="movie_image" />
-      <div className="movie-card-info">
+    <div className={styles.card}>
+      <img className={styles.image} src={image} alt="movie_image" />
+      <div className={styles.info}>
         <p>{title}</p>
         <p>{rating}</p>
         <p>{description}</p>
