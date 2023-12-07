@@ -1,8 +1,9 @@
+import React from "react";
 import { useSocialMediaLinks } from "./hooks/useSocialMediaLinks";
 import SocialMedia from "./SocialMedia";
 import styles from "./styles/socialMediaIcons.module.css";
 
-export default function SocialMediaIcons() {
+const SocialMediaIcons: React.FC = React.memo(() =>  {
   const socialMediaLinks = useSocialMediaLinks();
 
   return (
@@ -14,4 +15,6 @@ export default function SocialMediaIcons() {
       ))}
     </div>
   );
-}
+});
+
+export default SocialMediaIcons;

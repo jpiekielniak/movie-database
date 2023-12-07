@@ -1,9 +1,10 @@
+import React from "react";
 import { Container, Title, Text, Group } from "@mantine/core";
 import { Illustration } from "./ilustration/Ilustration";
 import styles from "./styles/notFound.module.css";
 import HomeLink from "./HomeLink";
 
-export function NotFound() {
+const NotFound : React.FC = React.memo(() => {
   return (
     <Container className={styles.container}>
       <div className={styles.inner}>
@@ -24,4 +25,6 @@ export function NotFound() {
       </div>
     </Container>
   );
-}
+});
+
+export default NotFound;

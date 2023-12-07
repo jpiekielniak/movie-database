@@ -6,12 +6,12 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import App from "./containers/App";
-import { NotFound } from "./components/notFound/NotFound";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import SignInLayout from "./components/auth/SignIn/SignInLayout";
 import SignUpLayout from "./components/auth/signUp/SignUpLayout";
 import MovieDetails from "./components/MovieCard/MovieDetails";
+import NotFound  from "./components/notFound/NotFound";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

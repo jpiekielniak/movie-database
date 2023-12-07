@@ -1,8 +1,9 @@
+import React from 'react';
 import { Container, Grid, Image } from '@mantine/core';
 import SignInButton from './SignInButton';
 import styles from "./styles/header.module.css";
 
-const Header = () => {
+const Header: React.FC = React.memo(() => {
   return (
     <Container className={styles.container}>
       <Grid className={styles.grid}>
@@ -15,6 +16,6 @@ const Header = () => {
       </Grid>
     </Container>
   );
-};
+});
 
 export default Header;
