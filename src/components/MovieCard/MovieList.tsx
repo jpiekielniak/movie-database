@@ -1,16 +1,10 @@
-import { useState } from "react";
 import MovieCard from "./MovieCard";
 import styles from "./styles/movieList.module.css";
 import { films } from "../../data/filmsData";
-import { TFilm } from "./types/Film";
 import { Link } from "react-router-dom";
+import { MovieListProps } from "./types/MovieListProps";
 
-type MovieListProps = {
-  onMovieSelect: (movie: TFilm) => void;
-};
-
-
-const MovieList: React.FC<MovieListProps> = ({onMovieSelect}) => {
+const MovieList: React.FC<MovieListProps> = () => {
   return (
     <div className={styles.container}>
       {films.map((film, index) => (

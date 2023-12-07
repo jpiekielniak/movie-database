@@ -1,12 +1,10 @@
 import React from 'react';
-import { TFilm } from './types/Film';
+import { TMovie } from './types/Movie';
 import { useParams } from 'react-router-dom';
 import { films } from '../../data/filmsData';
 import styles from './styles/movieDetails.module.css';
 import useStarRating from './hooks/useStarRating';
-interface MovieDetailsProps {
-  movie?: TFilm;
-}
+import { MovieDetailsProps } from './types/MovieDetailsProps';
 
 const MovieDetails: React.FC<MovieDetailsProps> = () => {
   const { title } = useParams<{ title: string }>();
