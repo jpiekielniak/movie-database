@@ -1,8 +1,8 @@
 import { ChangeEvent, useState } from "react";
-import { SignIn } from "../types/SignIn";
+import { TSignIn } from "../types/SignIn";
 
-export const useSignInData = (): [SignIn, (event: ChangeEvent<HTMLInputElement>) => void] => {
-    const [formData, setFormData] = useState<SignIn>({
+export const useSignInData = (): [TSignIn, (event: ChangeEvent<HTMLInputElement>) => void] => {
+    const [formData, setFormData] = useState<TSignIn>({
         email: "",
         password: ""
     });

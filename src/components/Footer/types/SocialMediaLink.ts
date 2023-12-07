@@ -1,8 +1,6 @@
 import { TablerIconsProps } from "@tabler/icons-react";
 
-interface SocialMediaLink {
+export type  TSocialMediaLink = {
     icon: React.ElementType<TablerIconsProps>;
     link: string;
   }
-
-  export default SocialMediaLink;
