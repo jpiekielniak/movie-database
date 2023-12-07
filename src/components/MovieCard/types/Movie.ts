@@ -1,4 +1,4 @@
-export type TFilm = {
+export type TMovie = {
   title: string;
   rating: number;
   image: string;
