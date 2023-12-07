@@ -53,3 +53,19 @@
   text-align: center;
   font-weight: bold;
 }
+
+@media (max-width: 1750px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .image {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  .details {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+}
