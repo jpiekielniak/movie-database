@@ -1,8 +1,9 @@
+import React from 'react';
 import { ActionIcon } from "@mantine/core";
 import styles from "./styles/socialMedia.module.css";
 import { TMedia } from "./types/Media";
 
-export default function SocialMedia({ link, icon }: TMedia) {
+const SocialMedia: React.FC<TMedia> = React.memo(({ link, icon }) => {
     const Icon = icon;
     return (
         <a href={link} target="_blank" rel="noopener noreferrer">
@@ -16,4 +17,6 @@ export default function SocialMedia({ link, icon }: TMedia) {
             </ActionIcon>
           </a>
     );
-}
+});
+
+export default SocialMedia;

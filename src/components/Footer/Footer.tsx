@@ -1,9 +1,10 @@
+import React from "react";
 import { Container, Text, Group } from "@mantine/core";
 import { IconCopyright } from "@tabler/icons-react";
 import SocialMediaIcons from "./SocialMediaIcons";
 import styles from "./styles/footer.module.css";
 
-export default function Footer() {
+const Footer: React.FC = React.memo(() => {
   return (
     <div className={styles.container}>
       <div className={styles.footer}>
@@ -22,4 +23,6 @@ export default function Footer() {
       </div>
     </div>
   );
-}
+});
+
+export default Footer;
