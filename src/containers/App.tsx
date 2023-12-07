@@ -15,10 +15,6 @@ function App() {
     setSelectedMovie(movie);
   };
 
-  const handleGoBack = () => {
-    setSelectedMovie(null);
-  };
-
   return (
     <div className={styles.container}>
       <div className={styles.flex}>
@@ -37,7 +33,7 @@ function App() {
               {!selectedMovie ? (
                 <MovieList onMovieSelect={handleMovieSelect} />
               ) : (
-                <MovieDetails movie={selectedMovie} onGoBack={handleGoBack} />
+                <MovieDetails movie={selectedMovie} />
               )}
             </Container>
           </div>
