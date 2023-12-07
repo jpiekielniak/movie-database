@@ -1,7 +1,7 @@
 import styles from "./styles/movieCard.module.css";
-import { Film } from "./types/Film";
+import { TFilm } from "./types/Film";
 
-function MovieCard({ title, rating, image, description }: Film) {
+function MovieCard({ title, rating, image, description }: TFilm) {
   return (
     <div className={styles.card}>
       <img className={styles.image} src={image} alt="movie_image" />

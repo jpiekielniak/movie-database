@@ -4,10 +4,10 @@ import {
   IconBrandGithub,
   IconMail,
 } from "@tabler/icons-react";
-import SocialMediaLink from "../types/SocialMediaLink";
+import { TSocialMediaLink } from "../types/SocialMediaLink";
 
-export const useSocialMediaLinks = (): SocialMediaLink[] => {
-    const [socialMediaLinks] = useState<SocialMediaLink[]>([
+export const useSocialMediaLinks = (): TSocialMediaLink[] => {
+    const [socialMediaLinks] = useState<TSocialMediaLink[]>([
         {
             icon: IconBrandLinkedin,
             link: "https://www.linkedin.com/in/jakub-piekielniak-487497287/",

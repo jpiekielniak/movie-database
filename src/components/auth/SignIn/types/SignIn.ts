@@ -1,4 +1,4 @@
-export interface SignIn {
+export type TSignIn = {
     email: string;
     password: string;
 }

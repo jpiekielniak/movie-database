@@ -1,8 +1,6 @@
 import { TablerIconsProps } from "@tabler/icons-react";
 
-interface Media {
+export type TMedia = {
     link: string;
     icon: React.ElementType<TablerIconsProps>;
 }
-
-export default Media;

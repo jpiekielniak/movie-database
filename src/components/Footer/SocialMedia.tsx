@@ -1,8 +1,8 @@
 import { ActionIcon } from "@mantine/core";
 import styles from "./styles/socialMedia.module.css";
-import Media from "./types/Media";
+import { TMedia } from "./types/Media";
 
-export default function SocialMedia({ link, icon }: Media) {
+export default function SocialMedia({ link, icon }: TMedia) {
     const Icon = icon;
     return (
         <a href={link} target="_blank" rel="noopener noreferrer">

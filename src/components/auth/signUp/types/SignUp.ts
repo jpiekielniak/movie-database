@@ -1,4 +1,4 @@
-export interface SignUp {
+export type TSignUp = {
     login: string;
     nick: string;
     email: string;
