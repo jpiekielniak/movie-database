@@ -11,6 +11,7 @@ import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
 import SignInLayout from "./components/auth/SignIn/SignInLayout";
 import SignUpLayout from "./components/auth/signUp/SignUpLayout";
+import MovieDetails from "./components/MovieCard/MovieDetails";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -24,6 +25,7 @@ root.render(
       <Route path="*" element={<NotFound/>} />
       <Route path="/sign-in" element={<SignInLayout/>} />
       <Route path="/sign-up" element={<SignUpLayout/>} />
+      <Route path="/details/:title" element={<MovieDetails />} />
     </Routes>
     </BrowserRouter>
   </MantineProvider>
