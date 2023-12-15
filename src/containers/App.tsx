@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Grid, Image, Container } from "@mantine/core";
 import MovieList from "../components/MovieCard/MovieList";
-import Footer from "../components/footer/Footer";
 import SignIn from "../components/Header/SignInButton";
 import { SearchBar } from "../components/SearchBar/SearchBar";
 import styles from "./styles/App.module.css";
@@ -39,7 +38,6 @@ function App() {
           </div>
         </Grid>
       </div>
-      <Footer />
     </div>
   );
 }
