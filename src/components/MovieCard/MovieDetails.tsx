@@ -1,5 +1,4 @@
 import React from 'react';
-import { TMovie } from './types/Movie';
 import { useParams } from 'react-router-dom';
 import { films } from '../../data/filmsData';
 import styles from './styles/movieDetails.module.css';
