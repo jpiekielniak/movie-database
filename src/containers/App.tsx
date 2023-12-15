@@ -6,7 +6,7 @@ import { TMovie } from "../components/MovieCard/types/Movie";
 import MovieDetails from "../components/MovieCard/MovieDetails";
 import { SearchBar } from "../components/SearchBar/SearchBar";
 
-function App() {
+export default function App() {
   const [selectedMovie, setSelectedMovie] = useState<TMovie | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
 
@@ -40,5 +40,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
