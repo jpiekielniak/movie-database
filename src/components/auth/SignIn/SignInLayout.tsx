@@ -4,7 +4,6 @@ import styles from "../SignIn/styles/signInLayout.module.css";
 import { IconLogin2 } from "@tabler/icons-react";
 import { useSignInData } from "./hooks/useSignInData";
 import SignUpLink from "./SignUpLink";
-import Footer from "../../footer/Footer";
 
 const SignInLayout: React.FC = () => {
   const [signInValues, handleInputChange] = useSignInData();
