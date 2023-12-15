@@ -1,20 +1,20 @@
-.container {
+.headerContainer {
+  width: 100%;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+.flexContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
 }
 
-.grid {
-  width: 100%;
-}
-
-.gridColStart {
-  display: flex;
-  justify-content: flex-start;
-}
-
-.gridColEnd {
+.rightContent {
   display: flex;
   justify-content: flex-end;
+}
+
+.image {
+  curosr: pointer;
 }

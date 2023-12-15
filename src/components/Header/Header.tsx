@@ -1,20 +1,35 @@
 import React from 'react';
-import { Container, Grid, Image } from '@mantine/core';
+import { Container, Image } from '@mantine/core';
+import { Link } from 'react-router-dom';
 import SignInButton from './SignInButton';
+import { SearchBar } from '../SearchBar/SearchBar';
 import styles from "./styles/header.module.css";
 
 const Header: React.FC = React.memo(() => {
   return (
-    <Container className={styles.container}>
-      <Grid className={styles.grid}>
-        <Grid.Col className={styles.gridColStart}>
-          <Image src="movie_club.png" alt="Movie Logo" width={120} height={50} />
-        </Grid.Col>
-        <Grid.Col className={styles.gridColEnd}>
-          <SignInButton />
-        </Grid.Col>
-      </Grid>
-    </Container>
+    <div className={styles.headerContainer}> 
+      <Container >
+        <div className={styles.flexContainer}>
+          <div className={styles.leftContent}> 
+            <Link to="/" className={styles.logoLink}>
+              <Image
+                src="movie_club.png"
+                alt="Movie Logo"
+                width={120}
+                height={50}
+                className={styles.image}
+              />
+            </Link>
+          </div>
+          <div className={styles.centerContent}> 
+            <SearchBar />
+          </div>
+          <div className={styles.rightContent}>
+            <SignInButton />
+          </div>
+        </div>
+      </Container>
+    </div>
   );
 });
 
