@@ -13,6 +13,7 @@ import SignUpLayout from "./components/auth/signUp/SignUpLayout";
 import MovieDetails from "./components/MovieCard/MovieDetails";
 import NotFound  from "./components/notFound/NotFound";
 import Footer from "./components/footer/Footer";
+import Header from "./components/Header/Header";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -21,6 +22,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <MantineProvider>
     <BrowserRouter>
+    <Header />
     <Routes>
       <Route path="/"  element={<App/>} />
       <Route path="*" element={<NotFound/>} />
