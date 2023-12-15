@@ -1,16 +1,16 @@
-import React from 'react';
-import { Container, Image } from '@mantine/core';
-import { Link } from 'react-router-dom';
-import SignInButton from './SignInButton';
-import { SearchBar } from '../SearchBar/SearchBar';
+import React, { useState } from "react";
+import { Container, Image } from "@mantine/core";
+import { Link } from "react-router-dom";
+import SignInButton from "./SignInButton";
 import styles from "./styles/header.module.css";
 
 const Header: React.FC = React.memo(() => {
+
   return (
-    <div className={styles.headerContainer}> 
-      <Container >
+    <div className={styles.headerContainer}>
+      <Container>
         <div className={styles.flexContainer}>
-          <div className={styles.leftContent}> 
+          <div className={styles.leftContent}>
             <Link to="/" className={styles.logoLink}>
               <Image
                 src="movie_club.png"
@@ -21,9 +21,7 @@ const Header: React.FC = React.memo(() => {
               />
             </Link>
           </div>
-          <div className={styles.centerContent}> 
-            <SearchBar />
-          </div>
+          <div className={styles.centerContent}></div>
           <div className={styles.rightContent}>
             <SignInButton />
           </div>
