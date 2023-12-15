@@ -1,12 +1,25 @@
-import { TextInput, TextInputProps, ActionIcon, useMantineTheme, rem } from '@mantine/core';
+import React, { useState } from 'react';
+import { TextInput, TextInputProps, ActionIcon, useMantineTheme } from '@mantine/core';
 import { IconSearch, IconArrowRight } from '@tabler/icons-react';
 import styles from "./styles/searchBar.module.css";
 
-export function SearchBar(props: TextInputProps) {
+interface SearchBarProps extends TextInputProps {
+  onSearch: (searchTerm: string) => void;
+}
+
+export function SearchBar({ onSearch, ...props }: SearchBarProps) {
   const theme = useMantineTheme();
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSearch = (value: string) => {
+    setSearchTerm(value);
+    onSearch(value);
+  };
 
   return (
     <TextInput
+      value={searchTerm}
+      onChange={(event) => handleSearch(event.currentTarget.value)}
       radius="xl"
       size="lg"
       placeholder="Search movies"
