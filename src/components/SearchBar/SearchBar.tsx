@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { TextInput, TextInputProps, ActionIcon, useMantineTheme } from '@mantine/core';
 import { IconSearch, IconArrowRight } from '@tabler/icons-react';
 import styles from "./styles/searchBar.module.css";
@@ -30,7 +30,6 @@ export function SearchBar({ onSearch, ...props }: SearchBarProps) {
           <IconArrowRight className={styles.right} stroke={1.5} />
         </ActionIcon>
       }
-      {...props}
     />
   );
 }
