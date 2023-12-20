@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Title, Text, Group } from "@mantine/core";
-import { Illustration } from "./ilustration/Ilustration";
+import { Illustration } from "./Ilustration/Ilustration";
 import styles from "./styles/notFound.module.css";
 import HomeLink from "./HomeLink";
 
