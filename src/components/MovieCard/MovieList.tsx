@@ -7,17 +7,19 @@ import { MovieListProps } from "./types/MovieListProps";
 
 const MovieList: React.FC<MovieListProps> = ({ searchTerm }) => {
   const filteredFilms = films.filter(film =>
-    film.title.toLowerCase().includes(searchTerm || ''.toLowerCase())
+      film.title.toLowerCase().includes((searchTerm || '').toLowerCase())
   );
 
+  const containerClass = filteredFilms.length === 1 ? `${styles.container} ${styles.singleMovie}` : styles.container;
+
   return (
-    <div className={styles.container}>
-      {filteredFilms.map((film, index) => (
-        <Link to={`/details/${film.title}`} key={`${index}_${film.title}`} className={styles.link}>
-          <MovieCard {...film} />
-        </Link>
-      ))}
-    </div>
+      <div className={containerClass}>
+        {filteredFilms.map((film, index) => (
+            <Link to={`/details/${film.title}`} key={`${index}_${film.title}`}>
+              <MovieCard {...film} />
+            </Link>
+        ))}
+      </div>
   );
 };
 

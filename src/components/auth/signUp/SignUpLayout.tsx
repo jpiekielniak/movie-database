@@ -17,7 +17,7 @@ const SignInLayout: React.FC = () => {
   return (
     <Container className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.descr}>Rejestracja</div>
+        <div className={styles.description}>Rejestracja</div>
 
         <div className={styles.input}>
           <TextInput
