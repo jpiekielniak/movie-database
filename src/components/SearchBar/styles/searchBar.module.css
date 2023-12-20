@@ -1,3 +1,7 @@
+.container {
+    border: 2px solid #000;
+    border-radius: 88em;
+}
 .left {
     width: 25px;
     height: 25px;

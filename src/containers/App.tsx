@@ -1,12 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Grid, Container } from "@mantine/core";
 import MovieList from "../components/MovieCard/MovieList";
 import styles from "./styles/App.module.css";
 import { TMovie } from "../components/MovieCard/types/Movie";
 import MovieDetails from "../components/MovieCard/MovieDetails";
-import { SearchBar } from "../components/SearchBar/SearchBar";
+import SearchBar from "../components/SearchBar/SearchBar";
 
-export default function App() {
+const App: React.FC = () => {
   const [selectedMovie, setSelectedMovie] = useState<TMovie | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
 
@@ -40,3 +40,5 @@ export default function App() {
     </div>
   );
 }
+
+export default App;
