@@ -1,6 +1,5 @@
 import React from 'react';
 import { ActionIcon } from "@mantine/core";
-import styles from "./styles/socialMedia.module.css";
 import { TMedia } from "./types/Media";
 
 const SocialMedia: React.FC<TMedia> = React.memo(({ link, icon }) => {
@@ -11,7 +10,6 @@ const SocialMedia: React.FC<TMedia> = React.memo(({ link, icon }) => {
               size="lg"
               color="black"
               variant="subtle"
-              className={styles.icon}
             >
               <Icon stroke={1.5} />
             </ActionIcon>

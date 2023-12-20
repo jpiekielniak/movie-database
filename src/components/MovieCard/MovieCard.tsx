@@ -1,14 +1,12 @@
 import styles from "./styles/movieCard.module.css";
 import { TMovie } from "./types/Movie";
 
-function MovieCard({ title, rating, image, description }: TMovie) {
+function MovieCard({ title, image }: TMovie) {
   return (
     <div className={styles.card}>
       <img className={styles.image} src={image} alt="movie_image" />
       <div className={styles.info}>
         <p>{title}</p>
-        <p>{rating}</p>
-        <p>{description}</p>
       </div>
     </div>
   );

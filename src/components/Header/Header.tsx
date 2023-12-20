@@ -10,8 +10,8 @@ const Header: React.FC = React.memo(() => {
     <div className={styles.headerContainer}>
       <Container>
         <div className={styles.flexContainer}>
-          <div className={styles.leftContent}>
-            <Link to="/" className={styles.logoLink}>
+          <div>
+            <Link to="/">
               <Image
                 src="movie_club.png"
                 alt="Movie Logo"
@@ -21,7 +21,6 @@ const Header: React.FC = React.memo(() => {
               />
             </Link>
           </div>
-          <div className={styles.centerContent}></div>
           <div className={styles.rightContent}>
             <SignInButton />
           </div>

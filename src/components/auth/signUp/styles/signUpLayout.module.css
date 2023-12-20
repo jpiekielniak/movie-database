@@ -2,7 +2,6 @@
   width: 350px;
   height: 550px;
   margin: auto;
-  margin-top: 10vh;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -10,10 +9,10 @@
   border-radius: 3px;
   border: 1px solid #396afc;
   background: linear-gradient(to right, #005c97, #363795);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 3px 8px;
 }
 
-.container form .descr {
+.container form .description {
   font-size: 20px;
   font-weight: 500;
   color: #e8e8e8;
@@ -101,33 +100,6 @@
 .form button:hover {
   transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.notification-wrapper {
-  position: relative;
-  width: 100%;
-  margin-top: 20px;
-  padding: 15px;
-  display: flex;
-  justify-content: center;
-}
-
-.notification {
-  position: absolute;
-  display: flex;
-  margin: auto;
-  bottom: -45px;
-  padding: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
-  z-index: 1;
-}
-
-.errorText {
-  font-weight: bold;
-  color: white;
-  width: 175px;
 }
 
 .link {

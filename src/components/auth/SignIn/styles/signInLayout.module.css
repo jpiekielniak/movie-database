@@ -1,6 +1,5 @@
 .container {
   width: 350px;
-  margin: auto;
   margin-top: 10vh;
   padding: 20px;
   display: flex;
@@ -9,10 +8,10 @@
   border-radius: 3px;
   border: 1px solid #396afc;
   background: linear-gradient(to right, #005c97, #363795);
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 3px 8px;
 }
 
-.descr {
+.description {
   font-size: 20px;
   font-weight: 500;
   color: #e8e8e8;
@@ -42,7 +41,6 @@ textarea {
   border: none;
   border-bottom: 2px solid #e8e8e8;
   background: transparent;
-  border-radius: none;
   width: 100%;
   resize: none;
 }
@@ -61,7 +59,6 @@ textarea {
 
 .input :is(input:focus, input:valid)~label {
   transform: translateY(-50%) scale(.9);
-  margin: 0em;
   padding: 0.4em;
   background: transparent;
 }
@@ -69,7 +66,6 @@ textarea {
 .input textarea:focus~label,
 .input textarea:valid~label {
   transform: translateY(-50%) scale(.9);
-  margin: 0em;
   padding: 0.4em;
   background: transparent;
 }
