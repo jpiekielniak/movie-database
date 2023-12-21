@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MovieCard from "./MovieCard";
 import styles from "./styles/movieList.module.css";
-import { films } from "../../data/filmsData";
 import { Link } from "react-router-dom";
 import { MovieListProps } from "./types/MovieListProps";
+import axios from "axios";
+import { TMovie } from "./types/Movie";
 
 const MovieList: React.FC<MovieListProps> = ({ searchTerm }) => {
-  const filteredFilms = films.filter(film =>
+  const [movies, setMovies] = useState<TMovie[]>([]);
+
+  useEffect(() => {
+    axios.get('https://at.usermd.net/api/movies')
+        .then(res => setMovies(res.data))
+        .catch(err => console.log(err));
+  }, []);
+
+  const filteredFilms = movies.filter(film =>
       film.title.toLowerCase().includes((searchTerm || '').toLowerCase())
   );
 
@@ -15,7 +24,7 @@ const MovieList: React.FC<MovieListProps> = ({ searchTerm }) => {
   return (
       <div className={containerClass}>
         {filteredFilms.map((film, index) => (
-            <Link to={`/details/${film.title}`} key={`${index}_${film.title}`}>
+            <Link to={`/details/${film.id}`} key={`${index}`}>
               <MovieCard {...film} />
             </Link>
         ))}
