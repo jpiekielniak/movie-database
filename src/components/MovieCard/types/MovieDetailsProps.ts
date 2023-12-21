@@ -1,5 +1,5 @@
-import { TMovie } from "./Movie";
+import {UUID} from "node:crypto";
 
 export type MovieDetailsProps = {
-    movie?: TMovie;
+    movie?: UUID;
 }

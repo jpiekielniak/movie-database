@@ -1,6 +1,6 @@
-import { TMovie } from "./Movie";
+import {UUID} from "node:crypto";
 
 export type MovieListProps = {
-    onMovieSelect: (movie: TMovie) => void;
+    onMovieSelect: (id : UUID) => void;
     searchTerm?: string;
   };

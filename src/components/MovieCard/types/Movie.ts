@@ -1,6 +1,9 @@
+import {UUID} from "node:crypto";
+
 export type TMovie = {
+  id: UUID;
   title: string;
   rating: number;
   image: string;
-  description: string;
+  content: string;
 }

@@ -2,21 +2,20 @@ import React, { useState } from "react";
 import { Grid, Container } from "@mantine/core";
 import MovieList from "../components/MovieCard/MovieList";
 import styles from "./styles/App.module.css";
-import { TMovie } from "../components/MovieCard/types/Movie";
 import MovieDetails from "../components/MovieCard/MovieDetails";
 import SearchBar from "../components/SearchBar/SearchBar";
+import {UUID} from "node:crypto";
 
 const App: React.FC = () => {
-  const [selectedMovie, setSelectedMovie] = useState<TMovie | null>(null);
+  const [selectedMovie, setSelectedMovie] = useState<UUID>();
   const [searchTerm, setSearchTerm] = useState<string>('');
 
-  const handleMovieSelect = (movie: TMovie) => {
-    setSelectedMovie(movie);
+  const handleMovieSelect = (id : UUID) => {
+    setSelectedMovie(id);
   };
 
   const handleSearch = (searchValue: string) => {
     setSearchTerm(searchValue.toLowerCase());
-    setSelectedMovie(null);
   };
 
   return (
