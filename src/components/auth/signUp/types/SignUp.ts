@@ -1,6 +1,5 @@
-export type TSignUp = {
-    login: string;
-    nick: string;
+export type TSignUpForm = {
+    name: string;
     email: string;
     password: string;
 }
