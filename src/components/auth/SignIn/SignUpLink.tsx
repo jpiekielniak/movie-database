@@ -1,6 +1,7 @@
 import styles from "./styles/signInLayout.module.css";
 import { IconUserPlus } from "@tabler/icons-react";
 import { Link } from "react-router-dom";
+import React from "react";
 
 const SignUpLink: React.FC = () => {
   return (

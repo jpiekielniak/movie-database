@@ -3,7 +3,7 @@ import { TSignIn } from "../types/SignIn";
 
 export const useSignInData = (): [TSignIn, (event: ChangeEvent<HTMLInputElement>) => void] => {
     const [formData, setFormData] = useState<TSignIn>({
-        email: "",
+        login: "",
         password: ""
     });
 

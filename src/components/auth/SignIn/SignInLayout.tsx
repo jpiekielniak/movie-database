@@ -4,14 +4,29 @@ import styles from "../SignIn/styles/signInLayout.module.css";
 import { IconLogin2 } from "@tabler/icons-react";
 import { useSignInData } from "./hooks/useSignInData";
 import SignUpLink from "./SignUpLink";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const SignInLayout: React.FC = () => {
   const [signInValues, handleInputChange] = useSignInData();
+  const navigate = useNavigate();
+  const handleNavigate = () => navigate("/");
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(signInValues);
-    //TODO: handle submit
+    axios
+      .post("https://at.usermd.net/api/user/auth", signInValues)
+      .then((response) => {
+        console.log(response.data.token);
+        localStorage.setItem("token", response.data.token);
+        handleNavigate();
+        window.dispatchEvent(new Event("successfulLogin"));
+
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -22,8 +37,8 @@ const SignInLayout: React.FC = () => {
         <div className={styles.input}>
           <TextInput
             required
-            id="email"
-            placeholder="E-mail"
+            id="login"
+            placeholder="Login"
             onChange={handleInputChange}
           />
         </div>

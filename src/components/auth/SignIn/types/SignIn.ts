@@ -1,4 +1,4 @@
 export type TSignIn = {
-    email: string;
+    login: string;
     password: string;
 }
