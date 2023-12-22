@@ -3,6 +3,7 @@ import {Container, Image} from "@mantine/core";
 import {Link} from "react-router-dom";
 import styles from "./styles/header.module.css";
 import useHeaderButtons from "./hooks/useHeaderButtons";
+import NavBar from "./NavBar";
 
 const Header: React.FC = React.memo(() => {
     const buttons = useHeaderButtons();
@@ -22,7 +23,7 @@ const Header: React.FC = React.memo(() => {
                         </Link>
                     </div>
                     <div className={styles.rightContent}>
-                        {buttons}
+                        <NavBar/>
                     </div>
                 </div>
             </Container>
