@@ -1,20 +1,24 @@
 .headerContainer {
-  width: 100%;
-  padding: 5px;
-  margin: 10px 0;
+    width: 100%;
+    padding: 5px;
+    margin: 10px 0;
 }
 
 .flexContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .rightContent {
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .image {
-  cursor: pointer;
+    cursor: pointer;
+}
+
+.button {
+    margin-left: 10px;
 }
