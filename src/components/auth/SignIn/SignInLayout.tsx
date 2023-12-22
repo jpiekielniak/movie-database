@@ -1,75 +1,86 @@
-import React from "react";
-import { Container, TextInput, Button } from "@mantine/core";
+import React, {useState} from "react";
+import {Container, TextInput, Button, Notification} from "@mantine/core";
 import styles from "../SignIn/styles/signInLayout.module.css";
-import { IconLogin2 } from "@tabler/icons-react";
-import { useSignInData } from "./hooks/useSignInData";
+import {IconLogin2} from "@tabler/icons-react";
 import SignUpLink from "./SignUpLink";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import useFormInput from "../Shared/hooks/useFormInput";
+import useSignInSubmit from "./hooks/useSignInSubmit";
 
 const SignInLayout: React.FC = () => {
-  const [signInValues, handleInputChange] = useSignInData();
-  const navigate = useNavigate();
-  const handleNavigate = () => navigate("/");
+    const login = useFormInput("");
+    const password = useFormInput("");
+    const [error, setError] = useState<string | null>(null);
+    const {handleSubmit} = useSignInSubmit();
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log(signInValues);
-    axios
-      .post("https://at.usermd.net/api/user/auth", signInValues)
-      .then((response) => {
-        console.log(response.data.token);
-        localStorage.setItem("token", response.data.token);
-        handleNavigate();
-        window.dispatchEvent(new Event("successfulLogin"));
+    const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
 
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+        const formData = {
+            login: login.value,
+            password: password.value,
+        };
 
-  return (
-    <Container size="sm" className={styles.container}>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.description}>Logowanie</div>
+        try {
+            await handleSubmit(formData);
+        } catch (error) {
+            setError("Nieprawidłowy login lub hasło");
+        }
+    };
 
-        <div className={styles.input}>
-          <TextInput
-            required
-            id="login"
-            placeholder="Login"
-            onChange={handleInputChange}
-          />
-        </div>
+    return (
+        <Container size="sm" className={styles.container}>
+            <form className={styles.form} onSubmit={handleFormSubmit}>
+                <div className={styles.description}>Logowanie</div>
 
-        <div className={styles.input}>
-          <TextInput
-            required
-            id="password"
-            type="password"
-            placeholder="Hasło"
-            onChange={handleInputChange}
-          />
-        </div>
+                <div className={styles.input}>
+                    <TextInput
+                        required
+                        id="login"
+                        placeholder="Login"
+                        value={login.value}
+                        onChange={login.onChange}
+                    />
+                </div>
 
-        <Button
-          type="submit"
-          fullWidth
-          variant="gradient"
-          gradient={{ from: "blue", to: "cyan" }}
-          className={styles.btn}
-        >
-          Zaloguj się <IconLogin2 />
-        </Button>
+                <div className={styles.input}>
+                    <TextInput
+                        required
+                        id="password"
+                        type="password"
+                        placeholder="Hasło"
+                        value={password.value}
+                        onChange={password.onChange}
+                    />
+                </div>
 
-        <p className={styles.textCenter}>
-          <span className={styles.whiteText}>Nie masz konta?</span>{" "}
-          <SignUpLink />
-        </p>
-      </form>
-    </Container>
-  );
+                {error && (
+                    <Notification
+                        title="Błąd logowania"
+                        color="red"
+                        onClose={() => setError(null)}
+                        className={styles.errorNotification}
+                    >
+                        {error}
+                    </Notification>
+                )}
+
+                <Button
+                    type="submit"
+                    fullWidth
+                    variant="gradient"
+                    gradient={{from: "blue", to: "cyan"}}
+                    className={styles.btn}
+                >
+                    Zaloguj się <IconLogin2/>
+                </Button>
+
+                <p className={styles.textCenter}>
+                    <span className={styles.whiteText}>Nie masz konta?</span>{" "}
+                    <SignUpLink/>
+                </p>
+            </form>
+        </Container>
+    );
 };
 
 export default SignInLayout;

@@ -1,4 +1,4 @@
-export type TSignIn = {
+export type TSignInForm = {
     login: string;
     password: string;
 }
