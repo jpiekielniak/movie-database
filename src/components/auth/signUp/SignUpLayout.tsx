@@ -1,5 +1,5 @@
-import React from "react";
-import {Container, TextInput, Button} from "@mantine/core";
+import React, {useState} from "react";
+import {Container, TextInput, Button, Notification} from "@mantine/core";
 import styles from "./styles/signUpLayout.module.css";
 import {IconLogin2} from "@tabler/icons-react";
 import SignInLink from "./SignInLink";
@@ -11,6 +11,7 @@ const SignUpLayout: React.FC = () => {
     const name = useFormInput('');
     const email = useFormInput('');
     const password = useFormInput('');
+    const [error, setError] = useState<string | null>('');
     const {handleSubmit} = useSignUpSubmit();
 
     const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -25,7 +26,7 @@ const SignUpLayout: React.FC = () => {
         try {
             await handleSubmit(formData);
         } catch (error) {
-            console.error(error);
+            setError("Błędna nazwa lub e-mail");
         }
     };
 
@@ -64,6 +65,17 @@ const SignUpLayout: React.FC = () => {
                         />
                     </div>
                 </div>
+
+                {error && (
+                    <Notification
+                        title="Błąd rejestracji"
+                        color="red"
+                        withCloseButton
+                        onClose={() => setError(null)}
+                    >
+                        {error}
+                    </Notification>
+                )}
 
                 <Button
                     type="submit"

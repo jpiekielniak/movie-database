@@ -57,8 +57,8 @@ const SignInLayout: React.FC = () => {
                     <Notification
                         title="Błąd logowania"
                         color="red"
+                        withCloseButton
                         onClose={() => setError(null)}
-                        className={styles.errorNotification}
                     >
                         {error}
                     </Notification>

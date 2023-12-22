@@ -1,6 +1,6 @@
 import {useNavigate} from "react-router-dom";
 import {TSignUpForm} from "../types/SignUp";
-import axios from "axios";
+import axios, {AxiosError} from "axios";
 
 export const useSignUpSubmit = () => {
     const navigate = useNavigate();
@@ -12,8 +12,8 @@ export const useSignUpSubmit = () => {
             .then(() => {
                 handleNavigate();
             })
-            .catch((error) => {
-                console.error(error);
+            .catch(() => {
+                throw new AxiosError();
             });
     }
 
