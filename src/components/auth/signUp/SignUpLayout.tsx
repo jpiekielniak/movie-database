@@ -5,7 +5,7 @@ import {IconLogin2} from "@tabler/icons-react";
 import SignInLink from "./SignInLink";
 import {useSignUpSubmit} from "./hooks/useSignUpSubmit";
 import {TSignUpForm} from "./types/SignUp";
-import useFormInput from "../Shared/hooks/useFormInput";
+import useFormInput from "../../Shared/hooks/useFormInput";
 
 const SignUpLayout: React.FC = () => {
     const name = useFormInput('');
