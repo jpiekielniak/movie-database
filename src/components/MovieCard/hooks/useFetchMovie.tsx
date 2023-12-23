@@ -1,7 +1,7 @@
-import {UUID} from "node:crypto";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import {TMovie} from "../types/Movie";
+import {UUID} from "node:crypto";
 
 const useFetchMovie = (movieId: UUID | undefined): TMovie | null => {
     const [movie, setMovie] = useState<TMovie | null>(null);
