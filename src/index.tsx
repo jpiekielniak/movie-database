@@ -29,7 +29,7 @@ root.render(
                 <Route path="*" element={<NotFound/>}/>
                 <Route path="/sign-in" element={<SignInLayout/>}/>
                 <Route path="/sign-up" element={<SignUpLayout/>}/>
-                <Route path="/details/:id" element={<MovieDetails/>}/>
+                <Route path="/details/:movieId" element={<MovieDetails/>}/>
                 <Route path="/add" element={<CreateMovieLayout/>}/>
             </Routes>
             <Footer/>
