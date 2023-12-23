@@ -14,7 +14,7 @@ import MovieDetails from "./components/MovieCard/MovieDetails";
 import NotFound from "./components/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import AddFilmLayout from "./components/addFilm/AddFilmLayout";
+import CreateMovieLayout from "./components/createMovie/CreateMovieLayout";
 
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
@@ -30,7 +30,7 @@ root.render(
                 <Route path="/sign-in" element={<SignInLayout/>}/>
                 <Route path="/sign-up" element={<SignUpLayout/>}/>
                 <Route path="/details/:id" element={<MovieDetails/>}/>
-                <Route path="/add" element={<AddFilmLayout/>}/>
+                <Route path="/add" element={<CreateMovieLayout/>}/>
             </Routes>
             <Footer/>
         </BrowserRouter>
