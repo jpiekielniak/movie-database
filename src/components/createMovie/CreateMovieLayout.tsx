@@ -2,7 +2,7 @@ import React, {FormEvent} from "react";
 import {TextField, Button, Grid, Container} from '@mui/material';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
 import styles from './CreateMovieLayout.module.css';
-import useFormInput from "../auth/Shared/hooks/useFormInput";
+import useFormInput from "../Shared/hooks/useFormInput";
 
 const CreateMovieLayout: React.FC = () => {
     const title = useFormInput('');

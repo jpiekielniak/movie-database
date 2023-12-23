@@ -3,7 +3,7 @@ import {Container, TextInput, Button, Notification} from "@mantine/core";
 import styles from "../SignIn/styles/signInLayout.module.css";
 import {IconLogin2} from "@tabler/icons-react";
 import SignUpLink from "./SignUpLink";
-import useFormInput from "../Shared/hooks/useFormInput";
+import useFormInput from "../../Shared/hooks/useFormInput";
 import useSignInSubmit from "./hooks/useSignInSubmit";
 
 const SignInLayout: React.FC = () => {
