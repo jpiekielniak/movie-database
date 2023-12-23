@@ -1,24 +1,43 @@
 import React, {FormEvent} from "react";
 import {TextField, Button, Grid, Container} from '@mui/material';
 import {createTheme, ThemeProvider} from '@mui/material/styles';
-import styles from './CreateMovieLayout.module.css';
+import styles from './styles/CreateMovieLayout.module.css';
 import useFormInput from "../Shared/hooks/useFormInput";
+import {TCreateMovie} from "./types/CreateMovie";
+import useCreateMovie from "./hooks/useCreateMovie";
+import { Alert } from '@mui/material';
 
 const CreateMovieLayout: React.FC = () => {
     const title = useFormInput('');
     const image = useFormInput('');
     const content = useFormInput('');
+    const [showSuccessAlert, setShowSuccessAlert] = React.useState(false);
+    const { createMovie } = useCreateMovie();
 
-
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const formData = {
+        const formData: TCreateMovie = {
             title: title.value,
             image: image.value,
             content: content.value,
         };
-        console.log("Dodano film:", formData);
+
+        const token = localStorage.getItem('token');
+
+        if (!token) {
+            throw new Error('Brak tokenu');
+        }
+
+        try {
+            await createMovie(formData, token);
+            setShowSuccessAlert(true);
+            setTimeout(() => {
+                setShowSuccessAlert(false);
+            }, 3000);
+        } catch (error) {
+            console.log(error);
+        }
     };
 
     const theme = createTheme({
@@ -44,6 +63,13 @@ const CreateMovieLayout: React.FC = () => {
     return (
         <ThemeProvider theme={theme}>
             <Container>
+                {showSuccessAlert && (
+                    <div className={styles.alertContainer}>
+                        <Alert severity="success" onClose={() => setShowSuccessAlert(false)}>
+                            Pomyślnie dodano film!
+                        </Alert>
+                    </div>
+                )}
                 <Grid
                     container
                     spacing={2}
