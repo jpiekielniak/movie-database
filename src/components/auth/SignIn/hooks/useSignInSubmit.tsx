@@ -17,7 +17,7 @@ const useSignInSubmit = () => {
                 "https://at.usermd.net/api/user/auth",
                 formData
             ).then((response) => {
-                localStorage.setItem("token", response.data.token);
+                window.localStorage.setItem("token", response.data.token);
                 handleSuccessfulLogin();
             }).catch(() => {
                 throw new AxiosError();
