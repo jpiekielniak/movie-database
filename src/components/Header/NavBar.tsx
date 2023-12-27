@@ -9,7 +9,7 @@ const NavBar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
     const navigate = useNavigate();
     const checkSession = () => {
-        const token = localStorage.getItem('token');
+        const token = window.localStorage.getItem('token');
 
         if (token) {
             const expired = isExpired(token);
@@ -21,6 +21,7 @@ const NavBar = () => {
 
 
     useEffect(() => {
+        checkSession();
         const handleLogin = () => {
             checkSession();
         };
@@ -30,7 +31,7 @@ const NavBar = () => {
     }, []);
 
     const handleLogout = () => {
-        localStorage.removeItem('token');
+        window.localStorage.removeItem('token');
         setIsLoggedIn(false);
         navigate('/');
     };

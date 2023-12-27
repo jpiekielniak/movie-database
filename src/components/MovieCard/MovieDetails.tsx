@@ -4,8 +4,8 @@ import styles from './styles/movieDetails.module.css';
 import { MovieDetailsProps } from './types/MovieDetailsProps';
 import { UUID } from 'node:crypto';
 import useFetchMovie from './hooks/useFetchMovie';
-import useDecodeToken from './hooks/useDecodeToken';
 import useDeleteMovie from "./hooks/useDeleteMovie";
+import useDecodeToken from "./hooks/useDecodeToken";
 
 const MovieDetails: React.FC<MovieDetailsProps> = () => {
   const { movieId } = useParams<{ movieId: UUID }>();
@@ -45,8 +45,8 @@ const MovieDetails: React.FC<MovieDetailsProps> = () => {
             <img src={movie?.image} alt={movie?.title} className={styles.image} />
           </div>
           <div className={styles.details}>
-            <h2 className={styles.title}>{movie ? movie.title : 'Loading...'}</h2>
-            <p className={styles.description}>{movie ? movie.content : 'Loading...'}</p>
+            <h2 className={styles.title}>{movie ? movie.title : 'Ładuję twoją zawartość :)'}</h2>
+            <p className={styles.description}>{movie ? movie.content : 'Ładuję twoją zawartość :)'}</p>
             {isAdmin && isDeleteButtonVisible && (
                 <button onClick={handleDeleteMovie} className={`${styles.deleteButton} ${styles.redButton}`}>
                   Usuń film
