@@ -29,7 +29,9 @@ const MovieDetails: React.FC<MovieDetailsProps> = () => {
   };
 
   const confirmDelete = () => {
-    deleteMovie(movieId, token);
+    deleteMovie(movieId, token).then(() => {
+        window.location.href = '/';
+    });
     setShowConfirmation(false);
   };
 
