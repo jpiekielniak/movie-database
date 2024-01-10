@@ -1,11 +1,9 @@
 import axios, {AxiosError} from "axios";
 import {TSignInForm} from "../types/SignIn";
-import {useNavigate} from "react-router-dom";
 
 const useSignInSubmit = () => {
-        const navigate = useNavigate();
 
-        const handleNavigate = () => navigate("/");
+        const handleNavigate = () => window.location.href = "/";
 
         const handleSuccessfulLogin = () => {
             handleNavigate();
