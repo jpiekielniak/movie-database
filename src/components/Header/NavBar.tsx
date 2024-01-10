@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { isExpired } from 'react-jwt';
 import styles from './styles/navbar.module.css';
 import {Button} from "@mantine/core";
-import {useNavigate} from "react-router-dom";
+import useLogoutButton from "./hooks/useLogoutButton";
 
 const NavBar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
-    const navigate = useNavigate();
+    const logoutUser = useLogoutButton();
+
     const checkSession = () => {
         const token = window.localStorage.getItem('token');
 
@@ -31,9 +32,12 @@ const NavBar = () => {
     }, []);
 
     const handleLogout = () => {
-        window.localStorage.removeItem('token');
-        setIsLoggedIn(false);
-        navigate('/');
+        logoutUser().then(() => {
+            window.location.href = '/';
+            setIsLoggedIn(false);
+        }).catch(() => {
+            console.log('error');
+        });
     };
 
     const renderLoggedInButtons = () => (
