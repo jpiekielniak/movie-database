@@ -3,7 +3,7 @@ import {UUID} from "node:crypto";
 export type TMovie = {
   id: UUID;
   title: string;
-  rating: number;
+  rate: number;
   image: string;
   content: string;
 }
