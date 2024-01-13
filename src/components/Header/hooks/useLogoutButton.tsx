@@ -1,5 +1,5 @@
 import axios from "axios";
-import useDecodeToken from "../../MovieCard/hooks/useDecodeToken";
+import useDecodeToken from "../../Shared/hooks/useDecodeToken";
 
 const useLogoutButton = () => {
     const token = window.localStorage.getItem("token");

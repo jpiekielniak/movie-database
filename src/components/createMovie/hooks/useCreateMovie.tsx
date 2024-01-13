@@ -11,11 +11,8 @@ const useCreateMovie = () => {
             'https://at.usermd.net/api/movies',
             data,
             {headers}
-        ).then((response) => {
-            return response.data
-        }).catch((error) => {
-            console.log(error);
-        });
+        ).then((response) => response.data)
+            .catch((error) => console.log(error));
     };
 
     return {createMovie};

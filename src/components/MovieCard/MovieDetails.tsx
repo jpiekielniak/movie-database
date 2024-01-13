@@ -5,7 +5,7 @@ import {MovieDetailsProps} from './types/MovieDetailsProps';
 import {UUID} from 'node:crypto';
 import useFetchMovie from './hooks/useFetchMovie';
 import useDeleteMovie from "./hooks/useDeleteMovie";
-import useDecodeToken from "./hooks/useDecodeToken";
+import useDecodeToken from "../Shared/hooks/useDecodeToken";
 import useStarRating from "./hooks/useStarRating";
 
 const MovieDetails: React.FC<MovieDetailsProps> = () => {
