@@ -7,10 +7,7 @@ const useDecodeToken = (token: Token): JwtPayload | null => {
     const [decoded, setDecoded] = useState<JwtPayload | null>(null);
 
     useEffect(() => {
-        if (token) {
-            const decodedToken: JwtPayload = jwtDecode(token);
-            setDecoded(decodedToken);
-        }
+        setDecoded(token ? jwtDecode(token) : null);
     }, [token]);
 
     return decoded;
