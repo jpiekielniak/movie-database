@@ -1,9 +1,60 @@
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
-    margin: 1rem;
+    pointer-events: none;
 }
 
 .singleMovie {
     grid-template-columns: 215px;
+}
+
+.item {
+    align-items: center;
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+    cursor: pointer;
+    pointer-events: auto;
+;
+}
+
+.paginationPage {
+    font-weight: 700;
+    cursor: pointer;
+    color: #808e9b;
+    transition: color 0.3s ease-in-out;
+    line-height: 10px;
+}
+
+.paginationPage:hover {
+    color: #0fbcf9;
+}
+
+.active {
+    color: #fff;
+    background-color: transparent;
+}
+
+.previous,
+.next {
+    font-size: 14px;
+    width: 40px;
+    cursor: pointer;
+    color: #808e9b;
+    transition: color 0.3s ease-in-out;
+    margin: 20px 40px 20px 40px;
+}
+
+.previous:hover,
+.next:hover {
+    color: #0fbcf9;
 }
