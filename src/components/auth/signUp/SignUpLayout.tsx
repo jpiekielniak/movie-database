@@ -33,6 +33,8 @@ const SignUpLayout: React.FC = () => {
     return (
         <Container className={styles.container}>
             <form className={styles.form} onSubmit={handleFormSubmit}>
+                <div className={styles.description}>Rejestracja</div>
+
                 <div className={styles.input}>
                     <TextInput
                         required
