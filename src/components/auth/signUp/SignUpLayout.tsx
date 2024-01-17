@@ -6,6 +6,7 @@ import SignInLink from "./SignInLink";
 import {useSignUpSubmit} from "./hooks/useSignUpSubmit";
 import {TSignUpForm} from "./types/SignUp";
 import useFormInput from "../../Shared/hooks/useFormInput";
+import * as yup from "yup";
 
 const SignUpLayout: React.FC = () => {
     const name = useFormInput('');
@@ -14,19 +15,29 @@ const SignUpLayout: React.FC = () => {
     const [error, setError] = useState<string | null>('');
     const {handleSubmit} = useSignUpSubmit();
 
+    const signUpSchema = yup.object().shape({
+        name: yup.string().required(),
+        email: yup.string().email().required(),
+        password: yup.string().min(6).required(),
+    });
+
     const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const formData: TSignUpForm = {
-            name: name.value,
-            email: email.value,
-            password: password.value,
+            name: name.value as string,
+            email: email.value as string,
+            password: password.value as string,
         };
 
-        try {
-            await handleSubmit(formData);
-        } catch (error) {
-            setError("Błędna nazwa lub e-mail");
+        const isValid = await signUpSchema.isValid(formData);
+
+        if (isValid) {
+            try {
+                await handleSubmit(formData);
+            } catch (error) {
+                setError("Błędna nazwa lub e-mail");
+            }
         }
     };
 

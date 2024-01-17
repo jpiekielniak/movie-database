@@ -5,26 +5,35 @@ import styles from './styles/CreateMovieLayout.module.css';
 import useFormInput from "../Shared/hooks/useFormInput";
 import {TCreateMovie} from "./types/CreateMovie";
 import useCreateMovie from "./hooks/useCreateMovie";
-import { Alert } from '@mui/material';
+import {Alert} from '@mui/material';
+import * as yup from 'yup';
 
 const CreateMovieLayout: React.FC = () => {
     const title = useFormInput('');
-    const rate = useFormInput('');
-    const productionYear = useFormInput('');
+    const rate = useFormInput(0);
+    const productionYear = useFormInput(0);
     const image = useFormInput('');
     const content = useFormInput('');
     const [showSuccessAlert, setShowSuccessAlert] = React.useState(false);
-    const { createMovie } = useCreateMovie();
+    const {createMovie} = useCreateMovie();
+
+    const createMovieSchema = yup.object().shape({
+        title: yup.string().min(3).max(100).required(),
+        rate: yup.number().min(1).max(10).nullable(),
+        productionYear: yup.number().min(1700).max(2024).nullable(),
+        image: yup.string().url().required(),
+        content: yup.string().min(10).max(2000).required(),
+    })
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const formData: TCreateMovie = {
-            title: title.value,
-            rate: Number(rate.value),
-            productionYear: Number(productionYear.value),
-            image: image.value,
-            content: content.value,
+            title: title.value as string,
+            rate: rate.value !== 0 ? Number(rate.value) : null,
+            productionYear: productionYear.value !== 0 ? Number(productionYear.value) : null,
+            image: image.value as string,
+            content: content.value as string,
         };
 
         const token = localStorage.getItem('token');
@@ -33,14 +42,18 @@ const CreateMovieLayout: React.FC = () => {
             throw new Error('Brak tokenu');
         }
 
-        try {
-            await createMovie(formData, token);
-            setShowSuccessAlert(true);
-            setTimeout(() => {
-                setShowSuccessAlert(false);
-            }, 3000);
-        } catch (error) {
-            console.log(error);
+        const isValid = await createMovieSchema.isValid(formData);
+
+        if(isValid) {
+            try {
+                await createMovie(formData, token);
+                setShowSuccessAlert(true);
+                setTimeout(() => {
+                    setShowSuccessAlert(false);
+                }, 3000);
+            } catch (error) {
+                console.log(error);
+            }
         }
     };
 
@@ -86,6 +99,7 @@ const CreateMovieLayout: React.FC = () => {
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
                                     <TextField
+                                        required
                                         fullWidth
                                         label="Tytuł"
                                         name="title"
@@ -108,7 +122,6 @@ const CreateMovieLayout: React.FC = () => {
                                         type="number"
                                         InputProps={{
                                             inputProps: {
-                                                min: 0,
                                                 max: 10,
                                             },
                                         }}
@@ -128,7 +141,6 @@ const CreateMovieLayout: React.FC = () => {
                                         type="number"
                                         InputProps={{
                                             inputProps: {
-                                                min: 1,
                                                 max: 2014,
                                             },
                                         }}
@@ -139,6 +151,7 @@ const CreateMovieLayout: React.FC = () => {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
+                                        required
                                         fullWidth
                                         label="Obraz"
                                         name="image"
@@ -152,6 +165,7 @@ const CreateMovieLayout: React.FC = () => {
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
+                                        required
                                         fullWidth
                                         multiline
                                         rows={4}

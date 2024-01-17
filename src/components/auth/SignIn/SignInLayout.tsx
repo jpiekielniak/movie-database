@@ -5,6 +5,7 @@ import {IconLogin2} from "@tabler/icons-react";
 import SignUpLink from "./SignUpLink";
 import useFormInput from "../../Shared/hooks/useFormInput";
 import useSignInSubmit from "./hooks/useSignInSubmit";
+import * as yup from "yup";
 
 const SignInLayout: React.FC = () => {
     const login = useFormInput("");
@@ -12,18 +13,27 @@ const SignInLayout: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
     const {handleSubmit} = useSignInSubmit();
 
+    const signInSchema = yup.object().shape({
+        login: yup.string().required(),
+        password: yup.string().required(),
+    });
+
     const handleFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const formData = {
-            login: login.value,
-            password: password.value,
+            login: login.value as string,
+            password: password.value as string,
         };
 
-        try {
-            await handleSubmit(formData);
-        } catch (error) {
-            setError("Nieprawidłowy login lub hasło");
+        const isValid = await signInSchema.isValid(formData);
+
+        if(isValid) {
+            try {
+                await handleSubmit(formData);
+            } catch (error) {
+                setError("Nieprawidłowy login lub hasło!");
+            }
         }
     };
 
