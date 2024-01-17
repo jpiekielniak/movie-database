@@ -9,6 +9,8 @@ import { Alert } from '@mui/material';
 
 const CreateMovieLayout: React.FC = () => {
     const title = useFormInput('');
+    const rate = useFormInput('');
+    const productionYear = useFormInput('');
     const image = useFormInput('');
     const content = useFormInput('');
     const [showSuccessAlert, setShowSuccessAlert] = React.useState(false);
@@ -19,6 +21,8 @@ const CreateMovieLayout: React.FC = () => {
 
         const formData: TCreateMovie = {
             title: title.value,
+            rate: Number(rate.value),
+            productionYear: Number(productionYear.value),
             image: image.value,
             content: content.value,
         };
@@ -75,7 +79,7 @@ const CreateMovieLayout: React.FC = () => {
                     spacing={2}
                     justifyContent="center"
                     alignItems="center"
-                    style={{minHeight: '100vh'}}
+                    style={{minHeight: '70vh'}}
                 >
                     <Grid item xs={12} sm={8} md={6}>
                         <form onSubmit={handleSubmit} className={styles.formContainer}>
@@ -88,6 +92,46 @@ const CreateMovieLayout: React.FC = () => {
                                         value={title.value}
                                         onChange={title.onChange}
                                         variant="outlined"
+                                        InputLabelProps={{
+                                            className: styles.textFieldLabel
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="Ocena"
+                                        name="rate"
+                                        value={rate.value}
+                                        onChange={rate.onChange}
+                                        variant="outlined"
+                                        type="number"
+                                        InputProps={{
+                                            inputProps: {
+                                                min: 0,
+                                                max: 10,
+                                            },
+                                        }}
+                                        InputLabelProps={{
+                                            className: styles.textFieldLabel
+                                        }}
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField
+                                        fullWidth
+                                        label="Rok produkcji"
+                                        name="productionYear"
+                                        value={productionYear.value}
+                                        onChange={productionYear.onChange}
+                                        variant="outlined"
+                                        type="number"
+                                        InputProps={{
+                                            inputProps: {
+                                                min: 1,
+                                                max: 2014,
+                                            },
+                                        }}
                                         InputLabelProps={{
                                             className: styles.textFieldLabel
                                         }}

@@ -1,7 +1,7 @@
 .container {
   width: 350px;
-  height: 550px;
-  margin: auto;
+  height: 500px;
+  margin: 45px auto;
   padding: 40px;
   display: flex;
   flex-direction: column;
@@ -12,12 +12,14 @@
   box-shadow: rgba(0, 0, 0, 0.24) 3px 8px;
 }
 
-.container form .description {
+.container form {
+  margin-top: 10px;
+}
+
+.description {
   font-size: 20px;
   font-weight: 500;
   color: #e8e8e8;
-  margin-bottom: 25px;
-  margin-top: 25px;
   text-align: center;
 }
 

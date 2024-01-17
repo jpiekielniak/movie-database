@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {isExpired} from 'react-jwt';
 import styles from './styles/navbar.module.css';
-import {Button} from "@mantine/core";
 import useLogoutButton from "./hooks/useLogoutButton";
 
 const NavBar = () => {
@@ -37,7 +36,7 @@ const NavBar = () => {
             {isLoggedIn ? (
                 <>
                     <Link to="/add" className={styles.button}>Dodaj film</Link>
-                    <Button onClick={handleLogout} className={styles.button}>Wyloguj się</Button>
+                    <Link to="/" onClick={handleLogout} className={styles.button}>Wyloguj się</Link>
                 </>
             ) : (
                 <>
