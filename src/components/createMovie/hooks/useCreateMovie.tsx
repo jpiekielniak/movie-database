@@ -11,7 +11,7 @@ const useCreateMovie = () => {
             'https://at.usermd.net/api/movies',
             data,
             {headers}
-        ).then((response) => console.log(response.data))
+        ).then(() => window.location.href = '/')
             .catch((error) => console.log(error));
     };
 
