@@ -8,7 +8,7 @@ const SocialMedia: React.FC<TMedia> = React.memo(({ link, icon }) => {
         <a href={link} target="_blank" rel="noopener noreferrer">
             <ActionIcon
               size="lg"
-              color="black"
+              color="white"
               variant="subtle"
             >
               <Icon stroke={1.5} />

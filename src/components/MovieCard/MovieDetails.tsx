@@ -54,6 +54,10 @@ const MovieDetails: React.FC<MovieDetailsProps> = () => {
 
                 <div className={styles.details}>
                     <h2 className={styles.title}>{movie ? movie.title : 'Ładuję twoją zawartość :)'}</h2>
+                    {movie && movie.productionYear !== 0 ? (
+                        <h3 className={styles.productionYear}>{movie ? movie.productionYear : 'Ładuję twoją zawartość :)'}</h3>
+                    ) : null
+                    }
                     <p className={styles.description}>{movie ? movie.content : 'Ładuję twoją zawartość :)'}</p>
 
                     <div className={styles.stars}>
